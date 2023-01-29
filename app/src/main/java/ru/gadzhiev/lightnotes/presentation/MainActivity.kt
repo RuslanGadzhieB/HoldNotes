@@ -1,4 +1,4 @@
-package ru.gadzhiev.lightnotes
+package ru.gadzhiev.lightnotes.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ru.gadzhiev.lightnotes.ui.theme.LightNotesTheme
+import ru.gadzhiev.lightnotes.presentation.ui.theme.LightNotesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

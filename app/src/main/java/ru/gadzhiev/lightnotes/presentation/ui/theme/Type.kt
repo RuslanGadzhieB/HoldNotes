@@ -1,4 +1,4 @@
-package ru.gadzhiev.lightnotes.ui.theme
+package ru.gadzhiev.lightnotes.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

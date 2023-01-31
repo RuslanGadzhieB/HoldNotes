@@ -2,8 +2,10 @@ package ru.gadzhiev.lightnotes.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import ru.gadzhiev.lightnotes.presentation.screens.AddScreen
 import ru.gadzhiev.lightnotes.presentation.screens.DetailsScreen
 import ru.gadzhiev.lightnotes.presentation.screens.main.MainScreen
@@ -24,8 +26,8 @@ fun SetupNavHost(navController: NavHostController) {
             MainScreen(navController = navController)
 
         }
-        composable(route = Screens.DetailsScreen.rout){
-            DetailsScreen()
+        composable(route = Screens.DetailsScreen.rout + "/{id}", arguments = listOf(navArgument("id"){ type = NavType.StringType})){
+            DetailsScreen(navController = navController, it.arguments?.getString("id"))
         }
         composable(route = Screens.AddScreen.rout){
             AddScreen(navController = navController)

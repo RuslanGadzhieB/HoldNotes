@@ -1,6 +1,7 @@
 package ru.gadzhiev.lightnotes.presentation.screens
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -8,40 +9,38 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import ru.gadzhiev.lightnotes.presentation.ui.theme.LightNotesTheme
-import  androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import ru.gadzhiev.lightnotes.domain.model.Note
 import ru.gadzhiev.lightnotes.presentation.navigation.Screens
-import ru.gadzhiev.lightnotes.presentation.screens.add.AddViewModel
+import ru.gadzhiev.lightnotes.presentation.screens.details.DetailsViewModel
+
 import java.util.*
+
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun AddScreen(
+fun DetailsScreen(
     navController: NavController,
+    id: String?,
 ) {
 
-    val viewModel = hiltViewModel<AddViewModel>()
-    var title by rememberSaveable { mutableStateOf("") }
-    var description by rememberSaveable { mutableStateOf("") }
+    val viewModel = hiltViewModel<DetailsViewModel>()
+    val note = viewModel.note.observeAsState().value
+    id?.toLong()?.let { viewModel.getNoteById(id = it) }
+    Log.d("checkData", "id: ${id}")
     Scaffold(
         topBar = {
             Row(
@@ -79,25 +78,16 @@ fun AddScreen(
                         .clip(RoundedCornerShape(14.dp))
                         .background(Color(0xFF383838))
                         .clickable {
-                            val color: Int = Color(
-                                Random().nextInt(256),
-                                Random().nextInt(256),
-                                Random().nextInt(256),
-                            ).toArgb()
-                            viewModel.addNote(
-                                Note(
-                                    title = title,
-                                    content = description,
-                                    backgroundColor = color
-                                )
-                            ) {
+                            viewModel.deleteNote {
                                 navController.navigate(Screens.MainScreen.rout)
+
                             }
                         }
+
                 ) {
                     Icon(
-                        imageVector = Icons.Filled.Add,
-                        contentDescription = "nav_add",
+                        imageVector = Icons.Filled.Delete,
+                        contentDescription = "delete",
                         tint = Color.White,
                         modifier = Modifier
                             .align(Alignment.Center)
@@ -111,32 +101,27 @@ fun AddScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 50.dp),
+                .padding(top = 68.dp)
+                .padding(horizontal = 27.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
+            verticalArrangement = Arrangement.Center
         ) {
-            TextField(
-                value = title,
-                onValueChange = { title = it },
-                label = { Text("Title") }
+            Text(
+                text = note?.title ?: "",
+                fontSize = 35.sp,
+                style = TextStyle(Color.Unspecified, fontWeight = FontWeight.Light)
             )
-            TextField(
-                value = description,
-                onValueChange = { description = it },
-                label = { Text("Description") },
-                modifier = Modifier.padding(top = 24.dp)
+            Text(
+                text = note?.content ?: "",
+                fontSize = 23.sp,
+                style = TextStyle(
+                    Color.Unspecified, fontWeight = FontWeight.Light
+                )
             )
 
         }
 
+
     }
 
-}
-
-@Preview(showBackground = true)
-@Composable
-fun addPrew() {
-    LightNotesTheme {
-        AddScreen(rememberNavController())
-    }
 }

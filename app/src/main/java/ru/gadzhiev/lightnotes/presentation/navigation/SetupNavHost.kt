@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ru.gadzhiev.lightnotes.presentation.screens.AddScreen
 import ru.gadzhiev.lightnotes.presentation.screens.DetailsScreen
-import ru.gadzhiev.lightnotes.presentation.screens.MainScreen
+import ru.gadzhiev.lightnotes.presentation.screens.main.MainScreen
 
 sealed class Screens(val rout: String) {
     object MainScreen : Screens(rout = "main_screen")
@@ -28,7 +28,7 @@ fun SetupNavHost(navController: NavHostController) {
             DetailsScreen()
         }
         composable(route = Screens.AddScreen.rout){
-            AddScreen()
+            AddScreen(navController = navController)
 
         }
     }

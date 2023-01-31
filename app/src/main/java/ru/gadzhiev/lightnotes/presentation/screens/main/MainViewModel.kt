@@ -1,4 +1,4 @@
-package ru.gadzhiev.lightnotes.presentation.screens
+package ru.gadzhiev.lightnotes.presentation.screens.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

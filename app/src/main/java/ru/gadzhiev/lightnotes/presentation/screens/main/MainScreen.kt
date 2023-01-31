@@ -1,6 +1,7 @@
-package ru.gadzhiev.lightnotes.presentation.screens
+package ru.gadzhiev.lightnotes.presentation.screens.main
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,26 +27,25 @@ import ru.gadzhiev.lightnotes.presentation.ui.theme.components.NoteItem
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen(navController: NavHostController) {
+
     val viewModel = hiltViewModel<MainViewModel>()
     val notes = viewModel.notes.observeAsState(listOf()).value
-
-
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = { navController.navigate(Screens.AddScreen.rout)}) {
-                Icon(
-                    imageVector = Icons.Filled.Add, tint = Color.White, contentDescription = "add"
-                )
+            FloatingActionButton(onClick = { navController.navigate(Screens.AddScreen.rout) }) {
+                Icon(imageVector = Icons.Filled.Add, tint = Color.White, contentDescription = "add")
             }
-        }) {
+        }
+    ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
         ) {
             Text(
-                text = "LightNotes",
-                fontSize = 30.sp,
-                modifier = Modifier.padding(top = 30.dp, start = 30.dp, bottom = 12.dp)
-
+                text = "LightNote",
+                fontSize = 40.sp,
+                modifier = Modifier
+                    .padding(top = 20.dp, start = 20.dp, bottom = 10.dp)
             )
 
             notes.forEach { note ->
@@ -54,17 +54,15 @@ fun MainScreen(navController: NavHostController) {
                     backgroundColor = Color(note.backgroundColor),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 12.dp, horizontal = 24.dp)
-
+                        .padding(vertical = 5.dp)
+                        .padding(horizontal = 16.dp)
+                        .clickable { navController.navigate(Screens.DetailsScreen.rout + "/${note.id}") }
                 )
             }
 
         }
-
     }
-
 }
-
 
 @Preview(showBackground = true)
 @Composable

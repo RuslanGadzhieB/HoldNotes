@@ -6,7 +6,7 @@
   <div align="center">
     <h1>HoldNotes</h1>
     <p>Russian&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a target="_blank" href="https://github.com/LuisandLan/HoldNotes/blob/master/fastline/README.md">English</a>
+    <a target="_blank" href="https://github.com/LuisandLan/HoldNotes/blob/master/README.md">English</a>
     <br/>
     <br/>
     <img src="https://github.com/LuisandLan/HoldNotes/blob/master/fastline/images/ru/Screenshot_20230508-132615.png" width="19.2%" alt="startup" />

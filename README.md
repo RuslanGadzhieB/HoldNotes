@@ -1,4 +1,4 @@
-# LightNotes
+# HoldNotes
 
 <li>Android SDK</li>
 <li>Kotlin</li>

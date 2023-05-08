@@ -40,6 +40,8 @@
 
 [<img src="https://s1.ax1x.com/2023/01/12/pSu1a36.png" alt="Get it on GitHub" height="80">](https://github.com/LuisandLan/HoldNotes/releases/tag/relese)
 
+[<img src="https://github.com/LuisandLan/HoldNotes/blob/master/fastline/images/ru/RuStoreIcon.png" alt="Get it on RuStore" height="80">](https://apps.rustore.ru/app/ru.gadzhiev.lightnotes)
+
 
 
 

@@ -1,0 +1,16 @@
+[33mf3081c6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: reset: moving to HEAD
+[33mf3081c6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{1}: reset: moving to f3081c6
+[33m5d36b78[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33mc1db05a[m HEAD@{3}: commit: del idea
+[33mf3081c6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{4}: merge origin/master: Fast-forward
+[33mf4be116[m HEAD@{5}: commit: Create RuStoreIcon.png
+[33m19b6551[m HEAD@{6}: merge origin/master: Fast-forward
+[33m5815f3c[m[33m ([m[1;33mtag: relese[m[33m)[m HEAD@{7}: commit: final
+[33me0fab12[m HEAD@{8}: commit: final
+[33mb42f1c1[m HEAD@{9}: commit: final
+[33mb230220[m HEAD@{10}: commit: ImageForReadme
+[33md4b8371[m HEAD@{11}: reset: moving to d4b837178568d5c36955cbc529877e9bca0f4d89
+[33m9c510bd[m HEAD@{12}: commit: ImageForReadme
+[33md4b8371[m HEAD@{13}: reset: moving to HEAD
+[33md4b8371[m HEAD@{14}: merge origin/master: Fast-forward
+[33m3da1762[m HEAD@{15}: commit: final
